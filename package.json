@@ -1,0 +1,16 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "Expense Tracker application implemented in TypeScript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

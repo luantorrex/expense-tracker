@@ -11,4 +11,11 @@ A simple but effective expense tracker where users can add expenses, categorize 
 
 ## Usage
 
-This repository currently contains only documentation. Implementation details for the expense tracker application will be added in the future. The goal is to provide a straightforward tool for tracking personal expenses and gaining insights into spending habits.
+The repository contains a basic TypeScript project setup. To build the project, install dependencies and run the build script:
+
+```bash
+npm install
+npm run build
+```
+
+This will compile the TypeScript source from `src/` into JavaScript in the `dist/` directory. The application entry point is `src/index.ts`.
