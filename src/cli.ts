@@ -40,3 +40,4 @@ switch (command) {
     console.log('Available commands: add, list, summary');
     process.exit(1);
 }
+
