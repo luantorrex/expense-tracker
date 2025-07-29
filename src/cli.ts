@@ -1,33 +1,43 @@
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
 import { ExpenseTracker } from './tracker';
 import { Expense } from './expense';
 
+// Minimal declaration for process when Node typings are unavailable
+declare const process: { argv: string[]; exit(code?: number): void };
+
 const tracker = new ExpenseTracker();
 
-const argv = yargs(hideBin(process.argv))
-  .command('add <amount> <description> <category>', 'Add a new expense', y => {
-    return y
-      .positional('amount', { type: 'number', describe: 'Amount spent' })
-      .positional('description', { type: 'string', describe: 'Expense description' })
-      .positional('category', { type: 'string', describe: 'Expense category' });
-  }, args => {
+const [command, ...args] = process.argv.slice(2);
+
+switch (command) {
+  case 'add': {
+    if (args.length < 3) {
+      console.log('Usage: add <amount> <description> <category>');
+      process.exit(1);
+    }
+    const [amountStr, description, category] = args;
+    const amount = Number(amountStr);
+    if (isNaN(amount)) {
+      console.log('Amount must be a number.');
+      process.exit(1);
+    }
     const expense: Expense = {
-      amount: args.amount as number,
-      description: args.description as string,
-      category: args.category as string,
+      amount,
+      description,
+      category,
       date: new Date()
     };
     tracker.addExpense(expense);
     console.log('Expense added.');
-  })
-  .command('list', 'List all expenses', {}, () => {
+    break;
+  }
+  case 'list':
     console.table(tracker.getExpenses());
-  })
-  .command('summary', 'Show summary by category', {}, () => {
+    break;
+  case 'summary':
     console.table(tracker.getSummaryByCategory());
-  })
-  .demandCommand()
-  .help()
-  .argv;
+    break;
+  default:
+    console.log('Available commands: add, list, summary');
+    process.exit(1);
+}
 
