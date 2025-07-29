@@ -8,14 +8,17 @@ A simple but effective expense tracker where users can add expenses, categorize 
 - **Categorization:** Organize expenses into custom categories (e.g., food, transportation, utilities).
 - **Summary View:** See a summary of total spending by category or over a specified period.
 - **Visualization:** Optionally view charts or graphs for a quick look at spending trends.
+- **Remove and Filter Expenses:** Delete expenses by ID and filter them by category or by date range.
 
 ## Usage
 
-The repository contains a basic TypeScript project setup. To build the project, install dependencies and run the build script:
+The repository contains a basic TypeScript project. After installing dependencies and running the build script, you can execute the example application:
 
 ```bash
 npm install
 npm run build
+npm start
 ```
 
-This will compile the TypeScript source from `src/` into JavaScript in the `dist/` directory. The application entry point is `src/index.ts`.
+Running `npm start` will execute the compiled JavaScript in `dist/index.js`, which demonstrates adding an expense and printing a summary.
+You can modify `src/index.ts` to experiment with removing expenses or filtering them by category and date range.
