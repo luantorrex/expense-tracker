@@ -31,9 +31,10 @@ npm test
 
 ## Command Line Interface
 
-A simple CLI is available to manage expenses. You can run it with:
+A simple CLI is available to manage expenses. Build the project first and then run it with:
 
 ```bash
+npm run build
 npm run cli -- <command>
 ```
 
