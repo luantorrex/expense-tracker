@@ -20,3 +20,25 @@ npm start
 ```
 
 Running `npm start` will execute the compiled JavaScript in `dist/index.js`, which demonstrates adding an expense and printing a summary.
+
+## Running Tests
+
+Unit tests are written using Jest. After installing dependencies you can run:
+
+```bash
+npm test
+```
+
+## Command Line Interface
+
+A simple CLI is available to manage expenses. You can run it with:
+
+```bash
+npm run cli -- <command>
+```
+
+Commands available:
+
+- `add <amount> <description> <category>` - Add a new expense
+- `list` - List all added expenses in the current session
+- `summary` - Display total spent per category
