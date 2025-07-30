@@ -1,3 +1,4 @@
+// AngularJS Expense Tracker Application
 function loadExpenses() {
   const raw = localStorage.getItem('expenses');
   return raw ? JSON.parse(raw) : [];
@@ -21,3 +22,28 @@ function getSummaryByCategory() {
     return summary;
   }, {});
 }
+
+const app = angular.module('expenseApp', []);
+
+app.controller('AddController', function($scope) {
+  $scope.expense = {};
+  $scope.add = function() {
+    if (!$scope.expense.amount || !$scope.expense.description || !$scope.expense.category) return;
+    addExpense({
+      amount: parseFloat($scope.expense.amount),
+      description: $scope.expense.description,
+      category: $scope.expense.category,
+      date: new Date()
+    });
+    $scope.expense = {};
+    alert('Expense added!');
+  };
+});
+
+app.controller('ListController', function($scope) {
+  $scope.expenses = loadExpenses();
+});
+
+app.controller('SummaryController', function($scope) {
+  $scope.summary = getSummaryByCategory();
+});
