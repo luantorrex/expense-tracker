@@ -8,25 +8,31 @@
   <script src="app.js"></script>
 </head>
 <body ng-controller="SummaryController">
-  <nav>
-    <a href="add.html">Add Expense</a> |
-    <a href="list.html">List Expenses</a> |
-    <a href="summary.html">Summary</a>
-  </nav>
-  <h1>Summary by Category</h1>
-  <table border="1" cellpadding="4" cellspacing="0">
-    <thead>
-      <tr>
-        <th>Category</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="(cat, total) in summary">
-        <td>{{cat}}</td>
-        <td>{{total}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="layout">
+    <nav class="sidebar">
+      <a href="index.html">Home</a>
+      <a href="add.html">Add Expense</a>
+      <a href="list.html">List Expenses</a>
+      <a href="summary.html">Summary</a>
+      <button class="home-button" onclick="window.location='index.html'">Home</button>
+    </nav>
+    <main class="content">
+      <h1>Summary by Category</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="(cat, total) in summary">
+            <td>{{cat}}</td>
+            <td>{{total}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
 </body>
 </html>

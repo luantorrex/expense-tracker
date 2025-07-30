@@ -8,26 +8,32 @@
   <script src="app.js"></script>
 </head>
 <body ng-controller="AddController">
-  <nav>
-    <a href="add.html">Add Expense</a> |
-    <a href="list.html">List Expenses</a> |
-    <a href="summary.html">Summary</a>
-  </nav>
-  <h1>Add Expense</h1>
-  <form ng-submit="add()">
-    <div class="form-row">
-      <label for="amount">Amount:</label>
-      <input type="number" id="amount" ng-model="expense.amount" required>
-    </div>
-    <div class="form-row">
-      <label for="description">Description:</label>
-      <input type="text" id="description" ng-model="expense.description" required>
-    </div>
-    <div class="form-row">
-      <label for="category">Category:</label>
-      <input type="text" id="category" ng-model="expense.category" required>
-    </div>
-    <button type="submit">Add</button>
-  </form>
+  <div class="layout">
+    <nav class="sidebar">
+      <a href="index.html">Home</a>
+      <a href="add.html">Add Expense</a>
+      <a href="list.html">List Expenses</a>
+      <a href="summary.html">Summary</a>
+      <button class="home-button" onclick="window.location='index.html'">Home</button>
+    </nav>
+    <main class="content">
+      <h1>Add Expense</h1>
+      <form ng-submit="add()">
+        <div class="form-row">
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" ng-model="expense.amount" required>
+        </div>
+        <div class="form-row">
+          <label for="description">Description:</label>
+          <input type="text" id="description" ng-model="expense.description" required>
+        </div>
+        <div class="form-row">
+          <label for="category">Category:</label>
+          <input type="text" id="category" ng-model="expense.category" required>
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </main>
+  </div>
 </body>
 </html>
