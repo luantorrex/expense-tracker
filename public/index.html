@@ -4,15 +4,20 @@
   <meta charset="UTF-8">
   <title>Expense Tracker</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 <body>
-  <nav>
-    <a href="add.html">Add Expense</a> |
-    <a href="list.html">List Expenses</a> |
-    <a href="summary.html">Summary</a>
-  </nav>
-  <h1>Expense Tracker</h1>
-  <p>Use the navigation above to manage your expenses.</p>
+  <div class="layout">
+    <nav class="sidebar">
+      <a href="index.html">Home</a>
+      <a href="add.html">Add Expense</a>
+      <a href="list.html">List Expenses</a>
+      <a href="summary.html">Summary</a>
+      <button class="home-button" onclick="window.location='index.html'">Home</button>
+    </nav>
+    <main class="content">
+      <h1>Expense Tracker</h1>
+      <p>Use the links on the left to manage your expenses.</p>
+    </main>
+  </div>
 </body>
 </html>
