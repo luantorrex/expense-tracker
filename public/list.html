@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="expenseApp">
 <head>
   <meta charset="UTF-8">
   <title>List Expenses</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="app.js"></script>
 </head>
-<body>
+<body ng-controller="ListController">
   <nav>
     <a href="add.html">Add Expense</a> |
     <a href="list.html">List Expenses</a> |
     <a href="summary.html">Summary</a>
   </nav>
   <h1>All Expenses</h1>
-  <table id="expense-table" border="1" cellpadding="4" cellspacing="0">
+  <table border="1" cellpadding="4" cellspacing="0">
     <thead>
       <tr>
         <th>Amount</th>
@@ -22,20 +23,14 @@
         <th>Date</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr ng-repeat="e in expenses">
+        <td>{{e.amount}}</td>
+        <td>{{e.description}}</td>
+        <td>{{e.category}}</td>
+        <td>{{e.date | date:'medium'}}</td>
+      </tr>
+    </tbody>
   </table>
-  <script>
-    function render() {
-      const tbody = document.querySelector('#expense-table tbody');
-      tbody.innerHTML = '';
-      const expenses = loadExpenses();
-      expenses.forEach(e => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${e.amount}</td><td>${e.description}</td><td>${e.category}</td><td>${new Date(e.date).toLocaleString()}</td>`;
-        tbody.appendChild(tr);
-      });
-    }
-    document.addEventListener('DOMContentLoaded', render);
-  </script>
 </body>
 </html>

@@ -44,23 +44,32 @@ Commands available:
 - `list` - List all added expenses
 - `summary` - Display total spent per category
 
-## Browser Frontend
+## Angular Browser Frontend
 
-Simple HTML pages are available under the `public/` folder. You can open these directly in your web browser.
+The pages inside `public/` use **AngularJS** (loaded from a CDN) to make the interface dynamic and slightly prettier. No additional build tools are required to try it out.
 
-- `public/add.html` &ndash; form to add a new expense
-- `public/list.html` &ndash; view all saved expenses
-- `public/summary.html` &ndash; see totals by category
+Pages available:
 
-Each page contains a small navigation bar so you can switch between them.
+- `public/index.html` – landing page
+- `public/add.html` – form to add a new expense
+- `public/list.html` – table of all expenses
+- `public/summary.html` – totals by category
 
 ### Opening the pages
 
-No extra build steps are required for the browser interface. From the project root run a small static server (for example `python -m http.server`) or simply open the files directly:
+1. (Optional) build the TypeScript sources if you want to use the Node examples:
 
-```bash
-# Using Python to serve on http://localhost:8000
-python -m http.server
-```
+   ```bash
+   npm install
+   npm run build
+   ```
 
-Then visit `http://localhost:8000/public/add.html` (or `list.html`, `summary.html`) in your browser. Alternatively open the HTML files from the `public/` folder directly.
+2. Start a simple web server from the project root:
+
+   ```bash
+   python -m http.server
+   ```
+
+3. Visit `http://localhost:8000/public/index.html` in your browser and navigate using the links.
+
+AngularJS comes from the CDN so there is nothing else to configure. If you wish to change the UI logic look at `public/app.js` and the HTML templates.
