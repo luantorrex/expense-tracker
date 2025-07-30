@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Expense</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="add.html">Add Expense</a> |
+    <a href="list.html">List Expenses</a> |
+    <a href="summary.html">Summary</a>
+  </nav>
+  <h1>Add Expense</h1>
+  <form id="expense-form">
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" required>
+    </div>
+    <div>
+      <label for="category">Category:</label>
+      <input type="text" id="category" required>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+  <script>
+    document.getElementById('expense-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const amount = parseFloat(document.getElementById('amount').value);
+      const description = document.getElementById('description').value;
+      const category = document.getElementById('category').value;
+      addExpense({ amount, description, category, date: new Date() });
+      this.reset();
+      alert('Expense added!');
+    });
+  </script>
+</body>
+</html>

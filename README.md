@@ -43,3 +43,24 @@ Commands available:
 - `add <amount> <description> <category>` - Add a new expense
 - `list` - List all added expenses
 - `summary` - Display total spent per category
+
+## Browser Frontend
+
+Simple HTML pages are available under the `public/` folder. You can open these directly in your web browser.
+
+- `public/add.html` &ndash; form to add a new expense
+- `public/list.html` &ndash; view all saved expenses
+- `public/summary.html` &ndash; see totals by category
+
+Each page contains a small navigation bar so you can switch between them.
+
+### Opening the pages
+
+No extra build steps are required for the browser interface. From the project root run a small static server (for example `python -m http.server`) or simply open the files directly:
+
+```bash
+# Using Python to serve on http://localhost:8000
+python -m http.server
+```
+
+Then visit `http://localhost:8000/public/add.html` (or `list.html`, `summary.html`) in your browser. Alternatively open the HTML files from the `public/` folder directly.

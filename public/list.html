@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List Expenses</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="add.html">Add Expense</a> |
+    <a href="list.html">List Expenses</a> |
+    <a href="summary.html">Summary</a>
+  </nav>
+  <h1>All Expenses</h1>
+  <table id="expense-table" border="1" cellpadding="4" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    function render() {
+      const tbody = document.querySelector('#expense-table tbody');
+      tbody.innerHTML = '';
+      const expenses = loadExpenses();
+      expenses.forEach(e => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${e.amount}</td><td>${e.description}</td><td>${e.category}</td><td>${new Date(e.date).toLocaleString()}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+    document.addEventListener('DOMContentLoaded', render);
+  </script>
+</body>
+</html>
